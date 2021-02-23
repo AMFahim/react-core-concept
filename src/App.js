@@ -3,38 +3,40 @@ import './App.css';
 
 function App() {
   var person = {
-    name : "Fahim",
-    Job : "Web Developer"
+    name: "Fahim",
+    Job: "Web Developer"
   }
   var person2 = {
-    name : "Rahim",
-    Job : "Web Developer"
+    name: "Rahim",
+    Job: "Web Developer"
   }
-  var style ={
+  var style = {
     color: "salmon",
     backgroundColor: "black"
   }
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        {/* <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> */}
-        <h1 className="" style={style}>My heading: {person.name + " " + person.Job} </h1>
-        <h2 style ={{backgroundColor:"cyan"}}>Developer: {person2.name + " " + person.Job}</h2>
-        <p>my first paragraph</p>
+        <p>I am react person</p>
+        <Person></Person>
+        <Person></Person>
+        <Person></Person>
       </header>
     </div>
   );
 }
-
+function Person() {
+  // const personStyle={
+  //  border: "2px solid red",
+  //  margin: "10px",
+  //  borderRadius:"20px"
+  // }
+  // or{return korar por , style ta use korte hobe}
+  return (
+    <div style={ {border: '2px solid yellow',margin: '10px', borderRadius: '20px'}}>
+      <h1>Name: Abdul Mozid Fahim</h1>
+      <h3>Hero of the year</h3>
+    </div>
+  )
+}
 export default App;
