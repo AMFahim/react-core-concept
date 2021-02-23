@@ -2,40 +2,29 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  var person = {
-    name: "Fahim",
-    Job: "Web Developer"
-  }
-  var person2 = {
-    name: "Rahim",
-    Job: "Web Developer"
-  }
-  var style = {
-    color: "salmon",
-    backgroundColor: "black"
-  }
+  const lovers =["Rahat", "Yakub", "Rakib"]
   return (
     <div className="App">
       <header className="App-header">
         <p>I am react person</p>
-        <Person></Person>
-        <Person></Person>
-        <Person></Person>
+        <Person name={lovers[0]} GF="Riya"></Person>
+        <Person name="Yakub" GF="Moni"></Person>
+        <Person name="Rakib" GF="Fatema"></Person>
       </header>
     </div>
   );
 }
-function Person() {
-  // const personStyle={
-  //  border: "2px solid red",
-  //  margin: "10px",
-  //  borderRadius:"20px"
-  // }
-  // or{return korar por , style ta use korte hobe}
+function Person(props) {
+  const personStyle={
+   border: "2px solid red",
+   margin: "10px",
+   borderRadius:"20px",
+   padding: "20px"
+  }
   return (
-    <div style={ {border: '2px solid yellow',margin: '10px', borderRadius: '20px'}}>
-      <h1>Name: Abdul Mozid Fahim</h1>
-      <h3>Hero of the year</h3>
+    <div style={personStyle}>
+      <h1>Name: {props.name}</h1>
+      <h3>Hero of {props.GF}</h3>
     </div>
   )
 }
