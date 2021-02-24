@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
   const lovers = ["Rahat", "Yakub", "Rakib", "Faysal","Azim","Mashraful"]
@@ -16,6 +16,7 @@ function App() {
       <header className="App-header">
         <p>I am react person</p>
         <Counter></Counter>
+        <Users></Users>
         <ul>
            {
              lovers.map(name => <li>{name}</li>)
@@ -51,7 +52,25 @@ function Counter() {
       <button onClick={() => setCount(count + 1)}>Increase</button>
     </div>
   )
-}
+};
+
+function Users() {
+  const [users, setUsers] = useState([]);
+  
+  useEffect(() => {
+  fetch('https://jsonplaceholder.typicode.com/users')
+  .then(res => res.json())
+  .then(data => setUsers(data));
+  },[])
+  return(
+    <div>
+      <h3>Dynamic Users: {users.length}</h3>
+      {
+       users.map(user => <li>{user.name}</li>)
+      }
+    </div>
+  )
+};
 
 function Person(props) {
   const personStyle = {
@@ -69,7 +88,7 @@ function Person(props) {
       <h3>Hero of {props.GF}</h3>
     </div>
   )
-}
+};
 function Product(props2) {
   const productStyle = {
     border: "1px solid gray",
@@ -89,5 +108,5 @@ function Product(props2) {
       <button>Buy Now</button>
     </div>
   )
-}
+};
 export default App;
